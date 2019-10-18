@@ -19,5 +19,8 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^' , include('main.urls')),
+    url(r'^patient/' , include('patient.urls')),
+    url('accounts/', include('django.contrib.auth.urls')), 
+
     url('', include('pwa.urls')),
 ]
