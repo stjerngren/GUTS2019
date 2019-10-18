@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load staticfiles %} 
+<html> 
+    <head lang="en">
+        <title>{% block title %}MetixPWA{% endblock %}</title>
+
+        {% block styleoverride %}
+        {% endblock %}
+    </head>
+    <div>
+        {% block body_block %}
+
+        {% endblock %}
+    </div>
+</html>
