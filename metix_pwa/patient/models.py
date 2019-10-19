@@ -5,6 +5,7 @@ from django.contrib import auth
 
 
 class Patient(models.Model):
+    doctor = models.ForeignKey("auth.User", related_name = "doctor", on_delete=models.DO_NOTHING, null=True)
     user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
     pill_today = models.BooleanField()
 

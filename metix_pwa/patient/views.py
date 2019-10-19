@@ -53,7 +53,7 @@ def take_pill(request):
     """
     if request.method == 'GET':
         patient_id = request.GET['id']
-        patient = Patient.objects.get(patient_id = patient_id)
+        patient = Patient.objects.get(id = patient_id)
         patient.pill_today = False
         patient.save()
     return HttpResponse()
@@ -65,7 +65,7 @@ def put_pill_back(request):
     """
     if request.method == 'GET':
         patient_id = request.GET['id']
-        patient = Patient.objects.get(patient_id = patient_id)
+        patient = Patient.objects.get(id = patient_id)
         patient.pill_today = True
         patient.save()
     return HttpResponse()

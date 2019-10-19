@@ -15,4 +15,4 @@ def send_broadcast(broadcast):
 
 
 if __name__ == "__main__":
-    send_broadcast("Hello world")
+    send_broadcast("Hi, it is now time to take your medication")

@@ -153,6 +153,6 @@ PWA_APP_LANG = 'en-US'
 
 
 LOGIN_REDIRECT_URL = '/patient/'
-
+LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
