@@ -6,9 +6,25 @@
 
 <div class = "container">
     <br>
-    <p>{{greeting}} {{first_name}}</p>
 
-    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{greeting}} {{first_name}}</h5>
+            {% if pill %}
+                <p class="card-text">
+                    You have to take {{pill_amount}} pills today at {{pill_time}}
+                </p>
+            {% else %}
+                <p class="card-text">
+                    You don't have to take any pills today!
+                </p>
+            {% endif %}
+           
+
+        </div>
+    </div>
+
+
 </div>
 
 {% endblock %}
