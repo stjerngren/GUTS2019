@@ -24,7 +24,7 @@ SECRET_KEY = '-c)m!xn-!m)v6*l&9poe-t4+40is9xs_td*0a-+3a=#3w!s=rg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pwa'
+    'pwa',
+    'crispy_forms'
     
 ]
 
@@ -129,3 +130,6 @@ STATICFILES_DIRS = (
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
 
 LOGIN_REDIRECT_URL = '/patient/'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
