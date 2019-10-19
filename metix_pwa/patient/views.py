@@ -46,6 +46,16 @@ def patient_index(request):
 
     return render(request, 'patient/patient_index.html', context)
 
+@login_required
+def my_doctors(request):
+
+    context = {
+        "doctors" : request.user.patient.doctor.all()
+
+    }
+    return render(request, 'patient/patient_doctors.html', context)
+
+
 def take_pill(request):
     """Stupid, don't ever ever ever do this
     
