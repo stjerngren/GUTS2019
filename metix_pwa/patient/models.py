@@ -1,8 +1,12 @@
 from django.db import models
 from django.contrib import auth
 # Create your models here.
+
+
+
 class Patient(models.Model):
     patient_id = models.AutoField(primary_key=True)
+    doctor = models.ForeignKey("auth.User", related_name = "doctor", on_delete=models.DO_NOTHING, null=True)
     user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
     pill_today = models.BooleanField()
 
