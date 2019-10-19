@@ -50,7 +50,7 @@ def patient_index(request):
 def my_doctors(request):
 
     context = {
-        "doctors" : request.user.patient.patient_doctor.all()
+        "doctors" : request.user.patient.doctor.all()
 
     }
     return render(request, 'patient/patient_doctors.html', context)
@@ -60,6 +60,11 @@ def my_profile(request):
 
     return render(request, 'patient/my_profile.html')
 
+
+@login_required
+def add_doctor(request):
+
+    return render(request, 'patient/add_doctor.html')
 
 
 

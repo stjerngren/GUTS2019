@@ -3,7 +3,7 @@ from django.contrib import auth
 # Create your models here.
 
 class Doctor(models.Model):
-    doctor = models.OneToOneField("auth.User", on_delete=models.CASCADE)
+    user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
 
 
 class Patient(models.Model):

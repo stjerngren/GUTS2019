@@ -17,7 +17,7 @@
                 <tbody>
                 {% for doctor in doctors %}
                     <tr>
-                        <td>{{doctor.first_name}} {{doctor.last_name}} </td>
+                        <td>{{doctor.user.first_name}} {{doctor.user.last_name}} </td>
                     </tr>
                 {% endfor %}
                 </tbody>
