@@ -138,7 +138,7 @@ PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
 PWA_APP_ICONS = [
 {
-'src': '/static/images/my_app_icon.png',
+'src': '/static/images/metix.png',
 'sizes': '160x160'
 }
 ]

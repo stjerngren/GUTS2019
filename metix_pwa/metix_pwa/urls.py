@@ -14,9 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include 
+from django.urls import path
 from django.contrib import admin
 from django.shortcuts import render
 
+def index(request):
+    print("test")
+    return render(request,"main/index.html")
 
 def base_layout(request):
     template='base.html'
@@ -24,10 +28,12 @@ def base_layout(request):
 
 
 urlpatterns = [
+
     url('', include('pwa.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^base_layout' , base_layout),
     url(r'^patient/' , include('patient.urls')),
     url('accounts/', include('django.contrib.auth.urls')), 
+    path('', index)
 
 ]
