@@ -1,0 +1,41 @@
+{% extends 'patient/patient_base.html' %}
+{% load staticfiles %} 
+
+{% block patient_block %}
+
+<div class = "container">
+    <br>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{greeting}} {{first_name}}</h5>
+            {% if pill %}
+                <p class="card-text">
+                    You have to take {{pill_amount}} pills today at {{pill_time}}
+                </p>
+            {% else %}
+                <p class="card-text">
+                    You don't have to take any pills today!
+                </p>
+            {% endif %}
+           
+
+        </div>
+
+    </div>
+        <br>
+        <div style = "text-align: center"> 
+            <a href="{% url 'login' %}">
+                <button style="width:60%"  type="button" class="btn btn-danger">My Medication</button>
+            </a>
+        </div>
+        <br>
+        <div style = "text-align: center"> 
+            <a href="{% url 'my_doctors' %}">
+                <button style="width:60%"  type="button" class="btn btn-danger">My Doctors</button>
+            </a>
+        </div>
+
+</div>
+
+{% endblock %}

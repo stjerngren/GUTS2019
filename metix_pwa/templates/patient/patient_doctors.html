@@ -1,0 +1,44 @@
+{% extends 'patient/patient_base.html' %}
+{% load staticfiles %} 
+
+{% block patient_block %}
+
+<div class = "container">
+    <br>
+
+    <div class="card">
+            {% if doctors %}
+                <table class = "table">
+                    <thead>
+                        <tr>
+                            <th>My Doctors</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                {% for doctor in doctors %}
+                    <tr>
+                        <td>{{doctor.first_name}} {{doctor.last_name}} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            {% else %}
+                <p>
+                    You don't have a doctor
+                </p>
+
+            {% endif %}
+           
+
+
+    </div>
+        <br>
+        <div style = "text-align: center"> 
+            <a href="{% url 'login' %}">
+                <button style="width:60%"  type="button" class="btn btn-danger">Add Doctor</button>
+            </a>
+        </div>
+
+</div>
+
+{% endblock %}
