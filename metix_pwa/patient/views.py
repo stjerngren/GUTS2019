@@ -55,6 +55,13 @@ def my_doctors(request):
     }
     return render(request, 'patient/patient_doctors.html', context)
 
+@login_required
+def my_profile(request):
+
+    return render(request, 'patient/my_profile.html')
+
+
+
 
 def take_pill(request):
     """Stupid, don't ever ever ever do this

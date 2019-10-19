@@ -5,7 +5,7 @@ from django.contrib import auth
 
 
 class Patient(models.Model):
-    doctor = models.ManyToManyField("auth.User", related_name = "doctor", null=True)
+    doctor = models.ManyToManyField("auth.User", related_name = "doctor")
     user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
     pill_today = models.BooleanField()
 
