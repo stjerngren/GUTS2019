@@ -1,0 +1,17 @@
+{% extends '../base.html' %}
+{% load staticfiles %} 
+{% block title_block %} {{ block.super }} {% endblock %}
+
+{% block body_block %}
+
+<div class = "container">
+    <!-- templates/registration/login.html -->
+    <br>
+    <h2>Login</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="width:50%"  type="button" class="btn btn-danger">Login</button>
+    </form>
+</div>
+{% endblock %}

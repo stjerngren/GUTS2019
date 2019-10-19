@@ -22,5 +22,4 @@ urlpatterns = [
     url(r'^patient/' , include('patient.urls')),
     url('accounts/', include('django.contrib.auth.urls')), 
 
-    url('', include('pwa.urls')),
 ]

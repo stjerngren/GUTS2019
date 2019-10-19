@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pwa',
+    'pwa'
+    
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ STATICFILES_DIRS = (
 )
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+LOGIN_REDIRECT_URL = '/patient/'
