@@ -50,7 +50,7 @@ def patient_index(request):
 def my_doctors(request):
 
     context = {
-        "doctors" : request.user.patient.doctor.all()
+        "doctors" : request.user.patient.patient_doctor.all()
 
     }
     return render(request, 'patient/patient_doctors.html', context)

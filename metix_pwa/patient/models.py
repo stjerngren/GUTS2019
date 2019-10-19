@@ -2,10 +2,12 @@ from django.db import models
 from django.contrib import auth
 # Create your models here.
 
+class Doctor(models.Model):
+    doctor = models.OneToOneField("auth.User", on_delete=models.CASCADE)
 
 
 class Patient(models.Model):
-    doctor = models.ManyToManyField("auth.User", related_name = "doctor")
+    doctor = models.ManyToManyField("doctor", related_name = "patient_doctor")
     user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
     pill_today = models.BooleanField()
 
