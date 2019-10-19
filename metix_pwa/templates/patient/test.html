@@ -1,0 +1,73 @@
+{% extends 'patient/patient_base.html' %}
+{% load staticfiles %} 
+
+{% block patient_block %}
+
+<div class = "container">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Monday:
+                {% for i in pill_amount_monday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Tuesday: 
+                {% for i in pill_amount_tuesday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Wednesday:
+                {% for i in pill_amount_wednesday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Thursday: 
+                {% for i in pill_amount_thursday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Friday: 
+                {% for i in pill_amount_friday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}            
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Saturday: 
+                {% for i in pill_amount_saturday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}                
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Sunday: 
+                {% for i in pill_amount_thursday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
