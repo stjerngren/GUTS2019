@@ -12,9 +12,25 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
         <a class="nav-link active" href="#"><i class="fas fa-home"></i></a>
+        <a class="nav-link" href="javascript:zoom();" ><i class="fas fa-search-plus"></i></i></a>
+        <a class="nav-link" href="javascript:unzoom();" ><i class="fas fa-search-minus"></i></a>
         <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
         <a class="nav-link" href="#"><i class="far fa-envelope"></i></a>
 </nav>
+
+<script>
+        function zoom() {
+                var fontSize = parseInt($("body").css("font-size"));
+                fontSize = fontSize + 1 + "px";
+                $("body").css({'font-size':fontSize});
+        }
+
+        function unzoom() {
+                var fontSize = parseInt($("body").css("font-size"));
+                fontSize = fontSize - 1 + "px !important";
+                $("body").css({'font-size':fontSize});
+        }
+</script>
 
 {% endblock %}   
     

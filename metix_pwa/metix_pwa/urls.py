@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include 
 from django.contrib import admin
+from django.shortcuts import render
+
+
+def base_layout(request):
+    template='base.html'
+    return render(request,template)
+
 
 urlpatterns = [
+    url('', include('pwa.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^' , include('main.urls')),
+    url(r'^base_layout' , base_layout),
     url(r'^patient/' , include('patient.urls')),
     url('accounts/', include('django.contrib.auth.urls')), 
 
