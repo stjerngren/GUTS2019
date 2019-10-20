@@ -1,13 +1,13 @@
-    
-    
+
+
 {% extends '../base.html' %}
-{% load staticfiles %} 
+{% load staticfiles %}
 {% block title_block %} {{ block.super }} {% endblock %}
 
 {% block body_block %}
 
 {% block patient_block %}
-{% endblock %}  
+{% endblock %}
 
 <br>
 <br>
@@ -28,6 +28,10 @@
                 var fontSize = parseInt($("body").css("font-size"));
                 fontSize = fontSize + 1 + "px";
                 $("body").css({'font-size':fontSize});
+
+                var buttonTextSize = parseInt($("button").css("font-size"));
+                buttonTextSize = buttonTextSize + 1+ "px";
+                $("button").css({'font-size':buttonTextSize});
         }
 
         function unzoom() {
@@ -36,11 +40,11 @@
                 var fontSize = parseInt($("body").css("font-size"));
                 fontSize = fontSize - 1 + "px";
                 $("body").css({'font-size':fontSize});
+
+                var buttonTextSize = parseInt($("button").css("font-size"));
+                buttonTextSize = buttonTextSize - 1+ "px";
+                $("button").css({'font-size':buttonTextSize});
         }
 </script>
 
-{% endblock %}   
-    
-    
-    
-    
+{% endblock %}
