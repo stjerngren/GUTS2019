@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^my_profile/$', views.my_profile, name='my_profile'),
     url(r'^take_pill/$', views.take_pill, name='take_pill'),
     url(r'^put_pill_back/$', views.put_pill_back, name='put_pill_back'),
+    url(r'^view_medication/$', views.view_medication, name='view_medication'),
+    url(r'^view_doctor/$',views.view_doctor,name='view_doctor')
 
 ]
