@@ -123,3 +123,5 @@ def view_medication(request):
 @login_required
 def doctor_profile(request):
     return render(request,'patient/doctor_profile.html')
+
+    
