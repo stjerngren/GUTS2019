@@ -71,6 +71,10 @@ def put_pill_back(request):
     return HttpResponse()
 
 
+def view_doctor(request):
+    return render(request, 'patient/view_doctor.html')
+
+
 def test(request):
     context = {
         'pill_amount_monday':range(request.user.patient.prescription.pills_monday_amount),
