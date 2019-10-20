@@ -102,3 +102,20 @@ def put_pill_back(request):
         patient.pill_today = True
         patient.save()
     return HttpResponse()
+
+
+def view_doctor(request):
+    return render(request, 'patient/view_doctor.html')
+
+
+def test(request):
+    context = {
+        'pill_amount_monday':range(request.user.patient.prescription.pills_monday_amount),
+        'pill_amount_tuesday': range(request.user.patient.prescription.pills_tuesday_amount),
+        'pill_amount_wednesday': range(request.user.patient.prescription.pills_wednesday_amount),
+        'pill_amount_thursday': range(request.user.patient.prescription.pills_thursday_amount),
+        'pill_amount_friday': range(request.user.patient.prescription.pills_friday_amount),
+        'pill_amount_saturday': range(request.user.patient.prescription.pills_saturday_amount),
+        'pill_amount_sunday':range(request.user.patient.prescription.pills_sunday_amount),
+        }
+    return render(request, 'patient/test.html', context)
