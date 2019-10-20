@@ -1,5 +1,5 @@
 {% extends 'patient/patient_base.html' %}
-{% load staticfiles %} 
+{% load staticfiles %}
 
 {% block patient_block %}
 
@@ -18,21 +18,21 @@
                     You don't have to take any pills today!
                 </p>
             {% endif %}
-           
+
 
         </div>
 
     </div>
         <br>
-        <div style = "text-align: center"> 
+        <div style = "text-align: center">
             <a href="{% url 'view_medication' %}">
-                <button style="width:60%"  type="button" class="btn btn-danger">My Medication</button>
+                <button style="width:60%; padding: 20px 60px;"  type="button" class="btn btn-danger">My Medication</button>
             </a>
         </div>
         <br>
-        <div style = "text-align: center"> 
+        <div style = "text-align: center">
             <a href="{% url 'my_doctors' %}">
-                <button style="width:60%"  type="button" class="btn btn-danger">My Doctors</button>
+                <button style="width:60%; padding: 20px 60px;"  type="button" class="btn btn-danger">My Doctors</button>
             </a>
         </div>
 
