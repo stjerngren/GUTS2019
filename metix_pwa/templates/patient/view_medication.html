@@ -1,5 +1,5 @@
 {% extends 'patient/patient_base.html' %}
-{% load staticfiles %} 
+{% load staticfiles %}
 
 {% block patient_block %}
 
@@ -16,7 +16,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <p class="card-text">Tuesday: 
+            <p class="card-text">Tuesday:
                 {% for i in pill_amount_tuesday %}
                 <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
                 {% endfor %}
@@ -34,7 +34,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <p class="card-text">Thursday: 
+            <p class="card-text">Thursday:
                 {% for i in pill_amount_thursday %}
                 <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
                 {% endfor %}
@@ -43,25 +43,25 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <p class="card-text">Friday: 
+            <p class="card-text">Friday:
                 {% for i in pill_amount_friday %}
                 <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
-                {% endfor %}            
+                {% endfor %}
             </p>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <p class="card-text">Saturday: 
+            <p class="card-text">Saturday:
                 {% for i in pill_amount_saturday %}
                 <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
-                {% endfor %}                
+                {% endfor %}
             </p>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <p class="card-text">Sunday: 
+            <p class="card-text">Sunday:
                 {% for i in pill_amount_thursday %}
                 <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
                 {% endfor %}
@@ -70,8 +70,10 @@
     </div>
 </div>
 <div class="container" style="text-align: center">
-    <button style="width:60%"  type="button" class="btn btn-danger" 
+    <br>
+    <button style="width:60%"  type="button" class="btn btn-danger"
     data-toggle="modal" data-target="#detailsModal">View Details</button>
+    </br>
 </div>
 
 <!-- Modal -->
@@ -112,9 +114,9 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <div style = "text-align: center"> 
+                            <div style = "text-align: center">
                                 <button style="width:60%"  type="button" class="btn btn-danger" data-dismiss="modal">Go Back</button>
-                            </div> 
+                            </div>
                         </div>
                     <br>
                     <br>
