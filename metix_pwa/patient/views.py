@@ -108,7 +108,7 @@ def view_doctor(request):
     return render(request, 'patient/view_doctor.html')
 
 
-def test(request):
+def view_medication(request):
     context = {
         'pill_amount_monday':range(request.user.patient.prescription.pills_monday_amount),
         'pill_amount_tuesday': range(request.user.patient.prescription.pills_tuesday_amount),
@@ -118,4 +118,4 @@ def test(request):
         'pill_amount_saturday': range(request.user.patient.prescription.pills_saturday_amount),
         'pill_amount_sunday':range(request.user.patient.prescription.pills_sunday_amount),
         }
-    return render(request, 'patient/test.html', context)
+    return render(request, 'patient/view_medication.html', context)
