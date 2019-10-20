@@ -5,10 +5,10 @@
 
     <div class="container">
       <div class ="container" style="padding:1em; background-color: #efefef">
-        <img src="{% static 'images/doctor.png' %}" style = "height:5rem !important" class="img-fluid border-img" alt="My image">
+        <img src="{% static 'images/doctor.png' %}" style = "height:8em !important" class="img-fluid border-img" alt="My image">
         <span style="font-size:2em; padding:0.5em">Dr Joe Davis</span>
       </div>
-        <table class="table">
+        <table class="table" style="margin-top:1em; margin-bottom:1em">
             <thead>
                 <tr>
                     <th>Department</th>
@@ -28,17 +28,16 @@
                         </tr>
                     </thead>
         </table>
-            <div style = "text-align: center">
-                <button style="width:60%"  type="button" class="btn btn-danger" data-dismiss="modal">Go Back</button>
-            </div>
-            <div style = "text-align: center; margin:1em">
+        <div style = "text-align: center; margin:1em">
 
-                <button type="button" class="btn btn-danger">Call</button>
+            <button type="button" class="btn btn-danger doctor_contact_buttons">Call</button>
 
-                <button type="button" class="btn btn-danger">Message</button>
+            <button type="button" class="btn btn-danger doctor_contact_buttons">Message</button>
 
-
-            </div>
+        </div>
+            <div style = "text-align: center; position:relative; top:3em; margin:1em">
+                <a href="{% url 'view_doctor' %}"><button style="padding:1em; display:block; width:100%;"  type="button" class="btn btn-danger">Go Back</button></a>
+        </div>
         </div>
 
 
