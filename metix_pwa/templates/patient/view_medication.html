@@ -1,0 +1,127 @@
+{% extends 'patient/patient_base.html' %}
+{% load staticfiles %}
+
+{% block patient_block %}
+
+<div class = "container">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Monday:
+                {% for i in pill_amount_monday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Tuesday:
+                {% for i in pill_amount_tuesday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Wednesday:
+                {% for i in pill_amount_wednesday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Thursday:
+                {% for i in pill_amount_thursday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Friday:
+                {% for i in pill_amount_friday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Saturday:
+                {% for i in pill_amount_saturday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text">Sunday:
+                {% for i in pill_amount_thursday %}
+                <img src="{% static 'images/pill.png' %}" style = "height:2rem !important" class="img-fluid" alt="My image">
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container" style="text-align: center">
+    <button style="width:60%"  type="button" class="btn btn-danger"
+    data-toggle="modal" data-target="#detailsModal">View Details</button>
+    <br>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id = "medication_modal">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">My Medication</h5>
+                  <i style = "color:red" class="fas fa-heartbeat"></i>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container" >
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Medication</th>
+                                    <th>Dose</th>
+                                    <th>Doctor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Acetaminophen</td>
+                                    <td>500 mg</td>
+                                    <td><a href="{% url 'doctor_profile' %}"><button type="button" class="btn btn-danger">J. Davis</button></a></td>
+                                </tr>
+                                <tr>
+                                    <td>Melatonin</td>
+                                    <td>5 mg</td>
+                                    <td>A. Hugh</td>
+                                </tr>
+                                <tr>
+                                    <td>Loratadine</td>
+                                    <td>5 mg</td>
+                                    <td>J. Davis</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div style = "text-align: center">
+                                <button style="width:60%"  type="button" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

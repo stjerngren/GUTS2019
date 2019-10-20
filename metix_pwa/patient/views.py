@@ -3,11 +3,11 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import date
 
-from patient.models import Patient
+from patient.models import Patient, Doctor
 
 def get_prescription(patient):
     """ Get amount of pills and when to take precsiption today"""
-    
+
     if date.today().weekday() == 0:
         return patient.prescription.pills_monday_amount, patient.prescription.pills_monday_time
     elif date.today().weekday() == 1:
@@ -50,7 +50,7 @@ def patient_index(request):
 def my_doctors(request):
 
     context = {
-        "doctors" : request.user.patient.patient_doctor.all()
+        "doctors" : request.user.patient.doctor.all()
 
     }
     return render(request, 'patient/patient_doctors.html', context)
@@ -61,11 +61,27 @@ def my_profile(request):
     return render(request, 'patient/my_profile.html')
 
 
+@login_required
+def add_doctor(request):
+    doctors = (
+        Doctor
+        .objects
+        .all()
+        .difference(
+            request
+            .user
+            .patient
+            .doctor
+            .all()
+            )
+        )
+    return render(request, 'patient/add_doctor.html', {"doctors":doctors})
+
 
 
 def take_pill(request):
     """Stupid, don't ever ever ever do this
-    
+
     Anyone will be able to request to take the pill with a simpkle get request
     """
     if request.method == 'GET':
@@ -77,7 +93,7 @@ def take_pill(request):
 
 def put_pill_back(request):
     """Stupid, don't ever ever ever do this
-    
+
     Anyone will be able to request to put the pill with a simpkle get request
     """
     if request.method == 'GET':
@@ -86,3 +102,26 @@ def put_pill_back(request):
         patient.pill_today = True
         patient.save()
     return HttpResponse()
+
+
+def view_doctor(request):
+    return render(request, 'patient/view_doctor.html')
+
+@login_required
+def view_medication(request):
+    context = {
+        'pill_amount_monday':range(request.user.patient.prescription.pills_monday_amount),
+        'pill_amount_tuesday': range(request.user.patient.prescription.pills_tuesday_amount),
+        'pill_amount_wednesday': range(request.user.patient.prescription.pills_wednesday_amount),
+        'pill_amount_thursday': range(request.user.patient.prescription.pills_thursday_amount),
+        'pill_amount_friday': range(request.user.patient.prescription.pills_friday_amount),
+        'pill_amount_saturday': range(request.user.patient.prescription.pills_saturday_amount),
+        'pill_amount_sunday':range(request.user.patient.prescription.pills_sunday_amount),
+        }
+    return render(request, 'patient/view_medication.html', context)
+
+@login_required
+def doctor_profile(request):
+    return render(request,'patient/doctor_profile.html')
+
+    

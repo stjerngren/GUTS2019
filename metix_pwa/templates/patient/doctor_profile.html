@@ -1,0 +1,43 @@
+{% extends 'patient/patient_base.html' %}
+{% load staticfiles %}
+
+{% block patient_block %}
+
+    <div class="container" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Department</th>
+                    <th>Cardiology</th>
+                </tr>
+            </thead>
+            <thead>
+                    <tr>
+                        <th>Practice</th>
+                        <th>24 Woodlands Road, G4 9TD</th>
+                    </tr>
+                </thead>
+                <thead>
+                        <tr>
+                            <th>Phone</th>
+                            <th>0748392857</th>
+                        </tr>
+                    </thead>
+        </table>
+            <div style = "text-align: center">
+                <button style="width:60%"  type="button" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+            </div>
+        </div>
+    <br>
+    <br>
+    <div class="row">
+
+        <button type="button" class="btn btn-danger" class="col-xs-6">Call</button>
+
+        <button type="button" class="btn btn-danger" class="col-xs-6">Message</button>
+
+
+    </div>
+
+
+{% endblock %}
