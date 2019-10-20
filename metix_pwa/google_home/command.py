@@ -7,7 +7,7 @@ def send_broadcast(broadcast):
         "broadcast":"true",
     }
 
-    print("COmmand executed")
+    print(broadcast)
     response = requests.post(
         url="http://127.0.0.1:3000/assistant/",
         json=data
