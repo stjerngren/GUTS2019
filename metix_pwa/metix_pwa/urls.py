@@ -26,11 +26,11 @@ from google_home.command import send_broadcast
 
 def google_home_command(request):
 
-    return render(request, 'main/google_home_commands')
+    return render(request, 'main/google_home_commands.html')
 
 def call_google_home(request):
     if request.method == 'GET':
-        command = ''.join(request.GET['command'].split('_'))
+        command = ' '.join(request.GET['command'].split('_'))
         send_broadcast(command)
     return HttpResponse()
 
@@ -47,6 +47,7 @@ urlpatterns = [
 
     url('', include('pwa.urls')),
     url(r'^call_google_home/$', call_google_home), 
+    url(r'^commands/$', google_home_command), 
     url(r'^admin/', admin.site.urls),
     url(r'^base_layout' , base_layout),
     url(r'^patient/' , include('patient.urls')),

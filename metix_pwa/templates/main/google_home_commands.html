@@ -1,0 +1,39 @@
+{% extends '../base.html' %}
+{% load staticfiles %} 
+{% block title_block %} {{ block.super }} {% endblock %}
+
+{% block body_block %}
+<div class = "container">
+<br>
+<h1> Send google home commands here </h1>
+
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Broadcast</span>
+  </div>
+  <input id = "broadcast" type="text" class="form-control" aria-label="Broadcast" aria-describedby="inputGroup-sizing-sm">
+</div>
+<button onclick="broadcast()" type="button" class="btn btn-primary btn-lg">Broadcast Command</button>
+
+</div>
+<script>
+
+
+
+function broadcast() {
+    let broadcast_string = $("#broadcast").val()
+    broadcast_string = broadcast_string.split(" ").join("_");
+    console.log(broadcast_string)
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+        var response = xmlhttp.responseText; //if you need to do something with the returned value
+    }
+    }
+    url = '/call_google_home/?command=' + broadcast_string;
+    console.log(url)
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
+}
+</script>
+{% endblock %}
