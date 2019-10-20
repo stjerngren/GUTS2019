@@ -14,9 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include 
+from django.http import HttpResponse
 from django.urls import path
 from django.contrib import admin
 from django.shortcuts import render
+
+from google_home.command import send_broadcast
+
+
+
+
+def google_home_command(request):
+
+    return render(request, 'main/google_home_commands')
+
+def call_google_home(request):
+    if request.method == 'GET':
+        command = ''.join(request.GET['command'].split('_'))
+        send_broadcast(command)
+    return HttpResponse()
 
 def index(request):
     print("test")
@@ -30,10 +46,11 @@ def base_layout(request):
 urlpatterns = [
 
     url('', include('pwa.urls')),
+    url(r'^call_google_home/$', call_google_home), 
     url(r'^admin/', admin.site.urls),
     url(r'^base_layout' , base_layout),
     url(r'^patient/' , include('patient.urls')),
     url('accounts/', include('django.contrib.auth.urls')), 
-    path('', index)
+    path('', index),
 
 ]

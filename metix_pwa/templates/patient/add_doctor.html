@@ -1,0 +1,33 @@
+{% extends 'patient/patient_base.html' %}
+{% load staticfiles %} 
+
+{% block patient_block %}
+
+<div class = "container">
+    <br>
+    <h1>Add Doctors </h1>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {% for doctor in doctors %}
+                <a id = "doctor{{doctor.id}}" class="dropdown-item" href="javascript:addDoctor({{doctor.id}});">{{doctor.first_name}} {{doctor.last_name}}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    function addDoctor(doctor_id) {
+        let doctor_id_string = "doctor" + doctor_id;
+        $(doctor_id_string).remove();
+
+        $.get('/patient/add_doctor/', { id : doctor_id, });
+
+
+    }
+
+</style>
+
+{% endblock %}

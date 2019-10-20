@@ -3,10 +3,11 @@ import requests
 def send_broadcast(broadcast):
     data = {
         'command': broadcast,
-        'user':"test",
-        "broadcast":"true"
+        'user':"Base85_client",
+        "broadcast":"true",
     }
 
+    print("COmmand executed")
     response = requests.post(
         url="http://127.0.0.1:3000/assistant/",
         json=data
@@ -15,4 +16,4 @@ def send_broadcast(broadcast):
 
 
 if __name__ == "__main__":
-    send_broadcast("Hi, it is now time to take your medication")
+    send_broadcast("Take your goddamn pills... Karen")
