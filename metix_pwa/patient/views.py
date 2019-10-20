@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import date
 
-from patient.models import Patient
+from patient.models import Patient, Doctor
 
 def get_prescription(patient):
     """ Get amount of pills and when to take precsiption today"""
@@ -45,6 +45,39 @@ def patient_index(request):
     }
 
     return render(request, 'patient/patient_index.html', context)
+
+@login_required
+def my_doctors(request):
+
+    context = {
+        "doctors" : request.user.patient.doctor.all()
+
+    }
+    return render(request, 'patient/patient_doctors.html', context)
+
+@login_required
+def my_profile(request):
+
+    return render(request, 'patient/my_profile.html')
+
+
+@login_required
+def add_doctor(request):
+    doctors = (
+        Doctor
+        .objects
+        .all()
+        .difference(
+            request
+            .user
+            .patient
+            .doctor
+            .all()
+            )
+        )
+    return render(request, 'patient/add_doctor.html', {"doctors":doctors})
+
+
 
 def take_pill(request):
     """Stupid, don't ever ever ever do this

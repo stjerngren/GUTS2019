@@ -2,12 +2,24 @@ from django.db import models
 from django.contrib import auth
 # Create your models here.
 
+class Doctor(models.Model):
+    user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
 
 
 class Patient(models.Model):
-    doctor = models.ForeignKey("auth.User", related_name = "doctor", on_delete=models.DO_NOTHING, null=True)
+    doctor = models.ManyToManyField("doctor", related_name = "patient_doctor")
     user = models.OneToOneField("auth.User", on_delete=models.CASCADE)
     pill_today = models.BooleanField()
+
+    DOB = models.CharField( max_length=10, null = True)
+    insurance_number = models.IntegerField(null = True)
+    medical_condition = models.CharField( max_length=50, null = True)
+    phone_number = models.IntegerField(null = True)
+    emergency_contact_first_name = models.CharField( max_length=30, null = True)
+    emergency_contact_last_name = models.CharField( max_length=30, null = True)
+    emergency_contact_phone_number= models.IntegerField(null = True)
+    address = models.CharField(max_length = 200, null = True)
+
 
 class Prescription(models.Model):
 
