@@ -7,7 +7,7 @@ from patient.models import Patient, Doctor
 
 def get_prescription(patient):
     """ Get amount of pills and when to take precsiption today"""
-    
+
     if date.today().weekday() == 0:
         return patient.prescription.pills_monday_amount, patient.prescription.pills_monday_time
     elif date.today().weekday() == 1:
@@ -81,7 +81,7 @@ def add_doctor(request):
 
 def take_pill(request):
     """Stupid, don't ever ever ever do this
-    
+
     Anyone will be able to request to take the pill with a simpkle get request
     """
     if request.method == 'GET':
@@ -93,7 +93,7 @@ def take_pill(request):
 
 def put_pill_back(request):
     """Stupid, don't ever ever ever do this
-    
+
     Anyone will be able to request to put the pill with a simpkle get request
     """
     if request.method == 'GET':
@@ -107,7 +107,7 @@ def put_pill_back(request):
 def view_doctor(request):
     return render(request, 'patient/view_doctor.html')
 
-
+@login_required
 def view_medication(request):
     context = {
         'pill_amount_monday':range(request.user.patient.prescription.pills_monday_amount),
@@ -119,3 +119,7 @@ def view_medication(request):
         'pill_amount_sunday':range(request.user.patient.prescription.pills_sunday_amount),
         }
     return render(request, 'patient/view_medication.html', context)
+
+@login_required
+def doctor_profile(request):
+    return render(request,'patient/doctor_profile.html')
